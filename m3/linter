@@ -1,0 +1,17 @@
+#!/bin/bash
+for file in *; do
+  if [ ! -d $file ]; then
+    if [ ${file: -2} == ".c" ]; then
+      if [ "$file" != "loadFile.c" ] && [ "$file" != "stringMaker.c" ]; then
+        cpplint.py $file
+        if [ $? -ne 0 ]; then
+          subl $file
+          exit 1
+        fi
+      fi
+      
+    fi
+  fi
+done;
+
+exit 0

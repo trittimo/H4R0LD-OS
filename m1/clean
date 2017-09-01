@@ -1,0 +1,3 @@
+#!/bin/bash
+# Project by: Michael Trittin, RJ DeCramer, Jaron Goodman
+rm -f bochsout.txt bootload kernel.o print.o kernel_asm.o kernel floppya.img copy.txt snapshot.txt

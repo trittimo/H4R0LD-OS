@@ -1,0 +1,9 @@
+type [filename]
+execute [program]
+copy [in] [out]
+create [filename]
+delete [filename]
+dir
+execforeground [filename]
+clear
+kill [processnumber]

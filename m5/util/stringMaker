@@ -1,0 +1,4 @@
+#!/bin/bash
+gcc stringMaker.c -o sm
+./sm $1 $2 | xclip -selection c
+rm sm

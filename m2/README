@@ -1,0 +1,37 @@
+Project by: Michael Trittin, RJ DeCramer, Jaron Goodman
+
+################## INSTRUCTIONS FOR BUILDING ##################
+Building is simple. You can do it using the steps below:
+1. Run `chmod +x compileOS`
+2. Run `./compileOS`
+
+However, you don't need to run this command if you use the provided `runOS`
+command since it is run during the execution of that bash script.
+
+################## INSTRUCTIONS FOR USAGE ##################
+Run our OS using the provided `runOS` bash script. This will compile the kernel,
+set up the workspace, and start bochs.
+
+Our OS currently does the following upon being started:
+1. Print out 'enter ur inputs kiddo: '
+2. You enter your input (optionally, hit backspace and remove letters!)
+3. Print out what you just input
+4. Read from and print out the message in sector 30
+
+If you look at our kernel.c, you'll see that this is all done using interrupt
+21. The handler for interrupt 21 in turn uses interrupts to print and read from
+the console.
+
+################## BUGS OR DEFICIENCIES ##################
+None currently known
+
+################## ADDITIONAL FEATURES ##################
+1. A `cleaner` bash script which cleans all irrelevant files from the directory
+2. A `runOS` bash script which generates the necessary kernel/floppy files and
+   runs the OS
+3. Organized kernel structure making proper use of header files & splitting up
+   tasks into different files
+
+NEW IN MILESTONE 2
+4. A bash script called `linter` which runs cpplint.py on each c file in the
+   directory and opens the file in sublime text if there are any errors

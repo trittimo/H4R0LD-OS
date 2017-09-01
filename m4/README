@@ -1,0 +1,50 @@
+Project by: Michael Trittin, RJ DeCramer, Jaron Goodman
+
+################## INSTRUCTIONS FOR BUILDING ##################
+Building is simple. Just run "make all".
+
+However, you don't need to run this command if you use the provided `runOS`
+command since it is run during the execution of that bash script.
+
+################## INSTRUCTIONS FOR USAGE ##################
+Run our OS using the provided `runOS` bash script. This will compile the kernel, set up the workspace, and start bochs.
+
+Our OS currently operates like a very simple shell. It handles the commands listed below:
+	 'type [filename]' 
+	 	type messag -> "If this message..."
+	 'execute [program]'
+	 	execute tstpr2 -> (tstpr2 output)
+	 'copy [in] [out]'
+	 	copy messag file -> "1 sectors copied"
+	 'create [filename]'
+	 	create file
+	 		(type in stuff)
+	 		(exit with empty line)
+	 'delete [filename]'
+	 	delete file
+	 'dir'
+	 	dir
+	 		messag -> 1 sectors
+	 		shell -> 4 sectors
+	 		...
+
+################## BUGS OR DEFICIENCIES ##################
+1. "linter" no longer works due to our new directories.
+
+################## ADDITIONAL FEATURES ##################
+PREVIOUS MILESTONES:
+1. A `cleaner` bash script which cleans all irrelevant files from the directory
+2. A `runOS` bash script which generates the necessary kernel/floppy files and
+   runs the OS
+3. Organized kernel structure making proper use of header files & splitting up
+   tasks into different files
+4. A bash script called `linter` which runs cpplint.py on each c file in the
+   directory and opens the file in sublime text if there are any errors
+5. A bash script called 'stringMaker' which runs the stringMaker program and copies the output to the clipboard for easy access.
+6. A few utility functions such as printInt(int i), strcmp(char* a, char* b), and strncmp(char* a, char* b, int len), zero(char* buf, int len). These will be very useful for expanding our kernel in the future.
+
+NEW IN MILESTONE 4
+7. All of the compilation/cleaning logic was moved into the Makefile (subsequently removed "compileOS" and "cleaner").
+8. Added a bunch of string utility functions (strlen, strpos, etc.)
+9. Organized project into directories.
+10. Our "dir" command within the shell includes the length (in sectors) of each of the files.

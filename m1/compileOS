@@ -1,0 +1,27 @@
+#!/bin/bash
+# Project by: Michael Trittin, RJ DeCramer, Jaron Goodman
+make clean
+make
+if [ $? -ne 0 ]; then
+  echo "There was an error in make..."
+  exit -1
+fi
+
+if [ ! -f bootload ]; then
+  echo "Creating bootload"
+  nasm bootload.asm
+fi
+
+if [ -f floppya.img ]; then
+  rm -f floppya.img
+fi
+echo "Creating floppy"
+dd if=/dev/zero of=floppya.img bs=512 count=2880
+
+echo "Copying bootload to floppy"
+dd if=bootload of=floppya.img bs=512 count=1 conv=notrunc
+
+echo "Copying kernel to floppy"
+dd if=kernel of=floppya.img bs=512 conv=notrunc seek=3
+
+echo "Finished - Run bochs -f opsys.bxrc"

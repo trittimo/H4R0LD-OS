@@ -1,0 +1,5 @@
+#!/bin/bash
+# Project by: Michael Trittin, RJ DeCramer, Jaron Goodman
+
+make clean > /dev/null
+rm -f bochsout.txt bootload kernel floppya.img copy.txt snapshot.txt loadFile shell

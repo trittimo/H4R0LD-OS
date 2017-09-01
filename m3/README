@@ -1,0 +1,34 @@
+Project by: Michael Trittin, RJ DeCramer, Jaron Goodman
+
+################## INSTRUCTIONS FOR BUILDING ##################
+Building is simple. You can do it using the steps below:
+1. Run `chmod +x compileOS`
+2. Run `./compileOS`
+
+However, you don't need to run this command if you use the provided `runOS`
+command since it is run during the execution of that bash script.
+
+################## INSTRUCTIONS FOR USAGE ##################
+Run our OS using the provided `runOS` bash script. This will compile the kernel, set up the workspace, and start bochs.
+
+Our OS currently operates like a very simple shell. It handles the commands 'type [filename]' and 'execute [program]'. For example, you could call 'type messag' and it will print out the same message seen in milestone 2. You can also call 'execute tstpr2' and it will print out the message corresponding to tstpr2.
+
+If you look at our kernel.c, you'll see that this is all done by calling 'executeProgram shell' through an interrupt 21. Whenever a program calls terminate, the shell is restarted.
+
+Additionally, if you look at shell.c, you can see that any interaction with the user and/or filesystem are done through interrupts.
+
+################## BUGS OR DEFICIENCIES ##################
+None currently known
+
+################## ADDITIONAL FEATURES ##################
+1. A `cleaner` bash script which cleans all irrelevant files from the directory
+2. A `runOS` bash script which generates the necessary kernel/floppy files and
+   runs the OS
+3. Organized kernel structure making proper use of header files & splitting up
+   tasks into different files
+4. A bash script called `linter` which runs cpplint.py on each c file in the
+   directory and opens the file in sublime text if there are any errors
+
+NEW IN MILESTONE 3
+5. A bash script called 'stringMaker' which runs the stringMaker program and copies the output to the clipboard for easy access.
+6. A few utility functions such as printInt(int i), strcmp(char* a, char* b), and strncmp(char* a, char* b, int len), zero(char* buf, int len). These will be very useful for expanding our kernel in the future.

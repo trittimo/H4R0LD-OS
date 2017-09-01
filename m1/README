@@ -1,0 +1,28 @@
+Project by: Michael Trittin, RJ DeCramer, Jaron Goodman
+
+################## INSTRUCTIONS FOR BUILDING ##################
+Building is simple. You can do it using the steps below:
+1. Run `chmod +x compileOS`
+2. Run `./compileOS`
+
+However, you don't need to run this command if you use the provided `runOS`
+command since it is run during the execution of that bash script.
+
+################## INSTRUCTIONS FOR USAGE ##################
+Run our OS using the provided `runOS` bash script. This will start the bochs
+simulator with the correct code. You can verify that it is working if the
+simulator says "Hello World!".
+
+
+################## BUGS OR DEFICIENCIES ##################
+There are no bugs or deficiencies that we currently know of.
+
+################## ADDITIONAL FEATURES ##################
+We implemented several behind-the-scenes functions which will make our lives
+easier. Firstly, we added a 'print' function which accepts a character array
+and an x/y position and prints the character array to that x/y position on the
+screen. Secondly, we added a 'clear' function which will clear the entire
+screen.
+
+Lastly, we added a handy 'clean' bash script which will clean the directory of
+any unnecessary generated files.
